@@ -37,101 +37,213 @@
                         <h5>按难度筛选</h5>
                     </div>
                     <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active" data-difficulty="all">
-                            全部文章
+                        <a href="#" class="list-group-item list-group-item-action active" data-filter="all">
+                            全部内容
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="7年级">
-                            7年级
+                        <a href="#" class="list-group-item list-group-item-action" data-filter="primary">
+                            小学阶段
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="8年级">
-                            8年级
+                        <a href="#" class="list-group-item list-group-item-action" data-filter="junior">
+                            初中年级
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="9年级">
-                            9年级
+                        <a href="#" class="list-group-item list-group-item-action" data-filter="senior">
+                            高中阶段
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="高一">
-                            高一
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-difficulty="高二">
-                            高二
+                        <a href="#" class="list-group-item list-group-item-action" data-filter="reading">
+                            阅读材料
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- 文章列表 -->
+            <!-- 文章索引列表 -->
             <div class="col-lg-9">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2>英语学习文章</h2>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                            排序方式
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">最新发布</a></li>
-                            <li><a class="dropdown-item" href="#">最受欢迎</a></li>
+                    <h2>英语学习资源索引</h2>
+                </div>
+
+                <!-- 方法介绍 -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">英语学习方法介绍</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>1. 学习英语常见问题</h5>
+                        <ul>
+                            <li><strong>听不懂</strong> : 很多英语老师默认孩子学过中文语法，直接讲课。</li>
+                            <li><strong>记不住</strong> : 单词、语法太多，没时间复习。</li>
+                            <li><strong>没意思</strong> : 平时用不到，考试抱佛脚。</li>
+                        </ul>
+
+                        <h5>2. 铜爸英语密训的学习逻辑</h5>
+                        <ul>
+                            <li><strong>时间短</strong> : 每天半小时，让改变悄然发生。</li>
+                            <li><strong>方法正确</strong> : 不再把英语拆分成单词和语法，而是综合学习，扩大知识面，更贴近新中考高考。</li>
+                            <li><strong>项目制学习</strong> : 通过每天翻译一篇文章，让单词和语法自然融入，不死记硬背，文章素材多样提高知识面。</li>
+                            <li><strong>工具便捷</strong> : 提供翻译、语音识别等工具，方便学习。</li>
+                            <li><strong>进步可见</strong> : 可以看到自己学习报告的前后对比，成就感强。</li>
+                        </ul>
+
+                        <h5>3. 训练原理</h5>
+                        <ul>
+                            <li>沉浸式学习法</li>
+                            <li>间隔重复记忆法</li>
+                            <li>输出驱动学习法</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 文章列表 -->
-                <div class="row" id="articles-container">
-                    <!-- 文章1 -->
-                    <div class="col-md-6 mb-4" data-difficulty="9年级">
+                <!-- 索引列表 -->
+                <div class="row" id="index-container">
+                    <!-- 小学阶段 -->
+                    <div class="col-md-6 mb-4" data-category="primary">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge bg-primary">9年级</span>
-                                    <small class="text-muted">2024-01-15</small>
+                                    <span class="badge bg-primary">小学</span>
                                 </div>
-                                <h5 class="card-title">如何提高英语听力理解能力</h5>
-                                <p class="card-text">很多学生在英语学习中遇到听不懂的问题，这往往是因为缺乏正确的学习方法。本文将介绍几种有效的听力训练技巧...</p>
-                                <a href="article-detail.html?id=1" class="btn btn-primary">阅读全文</a>
+                                <h5 class="card-title">4年级英语学习</h5>
+                                <p class="card-text">适合四年级学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的四年级页面 -->
+                                <a href="si-nian-ji.html" class="btn btn-primary">开始学习</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 文章2 -->
-                    <div class="col-md-6 mb-4" data-difficulty="8年级">
+                    <div class="col-md-6 mb-4" data-category="primary">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge bg-success">8年级</span>
-                                    <small class="text-muted">2024-01-12</small>
+                                    <span class="badge bg-success">小学</span>
                                 </div>
-                                <h5 class="card-title">英语单词记忆的科学方法</h5>
-                                <p class="card-text">记不住英语单词是很多学生的困扰。通过间隔重复记忆法和沉浸式学习法，可以大大提高记忆效果...</p>
-                                <a href="article-detail.html?id=2" class="btn btn-primary">阅读全文</a>
+                                <h5 class="card-title">5年级英语学习</h5>
+                                <p class="card-text">适合五年级学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的五年级页面 -->
+                                <a href="wu-nian-ji.html" class="btn btn-primary">开始学习</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 文章3 -->
-                    <div class="col-md-6 mb-4" data-difficulty="7年级">
+                    <div class="col-md-6 mb-4" data-category="primary">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge bg-info">7年级</span>
-                                    <small class="text-muted">2024-01-10</small>
+                                    <span class="badge bg-warning">小学</span>
                                 </div>
-                                <h5 class="card-title">英语学习中的常见问题解答</h5>
-                                <p class="card-text">初学英语时经常遇到各种问题，比如语法难懂、发音不准等。本文为您一一解答这些常见困惑...</p>
-                                <a href="article-detail.html?id=3" class="btn btn-primary">阅读全文</a>
+                                <h5 class="card-title">6年级英语学习</h5>
+                                <p class="card-text">适合六年级学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的六年级页面 -->
+                                <a href="liu-nian-ji.html" class="btn btn-primary">开始学习</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 文章4 -->
-                    <div class="col-md-6 mb-4" data-difficulty="9年级">
+                    <!-- 初中年级 -->
+                    <div class="col-md-6 mb-4" data-category="junior">
                         <div class="card h-100">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <span class="badge bg-primary">9年级</span>
-                                    <small class="text-muted">2024-01-08</small>
+                                    <span class="badge bg-info">初中</span>
                                 </div>
-                                <h5 class="card-title">立信英语密训学习方法详解</h5>
-                                <p class="card-text">介绍立信英语密训的独特学习逻辑，包括时间短、方法正确、项目制学习等特点，帮助学生高效学习...</p>
-                                <a href="article-detail.html?id=4" class="btn btn-primary">阅读全文</a>
+                                <h5 class="card-title">7年级英语学习</h5>
+                                <p class="card-text">适合初一学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的七年级页面 -->
+                                <a href="qi-nian-ji.html" class="btn btn-primary">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4" data-category="junior">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-success">初中</span>
+                                </div>
+                                <h5 class="card-title">8年级英语学习</h5>
+                                <p class="card-text">适合初二学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的八年级页面 -->
+                                <a href="ba-nian-ji.html" class="btn btn-primary">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4" data-category="junior">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-primary">初中</span>
+                                </div>
+                                <h5 class="card-title">9年级英语学习</h5>
+                                <p class="card-text">适合初三学生的英语学习资源和方法指导。</p>
+                                <!-- 指向本地创建的九年级页面 -->
+                                <a href="jiu-nian-ji.html" class="btn btn-primary">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 高中阶段 -->
+                    <div class="col-md-6 mb-4" data-category="senior">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-warning">高中</span>
+                                </div>
+                                <h5 class="card-title">高一英语学习</h5>
+                                <p class="card-text">高一阶段的英语学习规划、重点内容和学习方法。</p>
+                                <a href="gao-yi.html" class="btn btn-primary">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4" data-category="senior">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-danger">高中</span>
+                                </div>
+                                <h5 class="card-title">高二英语学习</h5>
+                                <p class="card-text">高二阶段的英语能力提升策略和难点突破。</p>
+                                <a href="gao-er.html" class="btn btn-primary">开始学习</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4" data-category="senior">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-dark">高中</span>
+                                </div>
+                                <h5 class="card-title">高三英语冲刺</h5>
+                                <p class="card-text">高三冲刺阶段的复习指南和提分技巧。</p>
+                                <a href="gao-kao.html" class="btn btn-primary">开始冲刺</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 阅读材料 -->
+                    <div class="col-md-6 mb-4" data-category="reading">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-secondary">阅读</span>
+                                </div>
+                                <h5 class="card-title">中国日报 (China Daily)</h5>
+                                <p class="card-text">通过权威英文媒体提升英语阅读能力。</p>
+                                <a href="china-daily.html" class="btn btn-primary">开始阅读</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4" data-category="reading">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge bg-success">阅读</span>
+                                </div>
+                                <h5 class="card-title">小王子 (The Little Prince)</h5>
+                                <p class="card-text">通过经典文学作品学习英语，提升文学素养。</p>
+                                <a href="little-prince.html" class="btn btn-primary">开始学习</a>
                             </div>
                         </div>
                     </div>
@@ -156,27 +268,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // 筛选功能
-        document.querySelectorAll('[data-difficulty]').forEach(link => {
+        // 分类筛选功能
+        document.querySelectorAll('[data-filter]').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 // 更新激活状态
-                document.querySelectorAll('[data-difficulty]').forEach(item => {
+                document.querySelectorAll('[data-filter]').forEach(item => {
                     item.classList.remove('active');
                 });
                 this.classList.add('active');
                 
                 // 获取筛选条件
-                const difficulty = this.getAttribute('data-difficulty');
+                const filter = this.getAttribute('data-filter');
                 
-                // 筛选文章
-                const articles = document.querySelectorAll('#articles-container .col-md-6');
-                articles.forEach(article => {
-                    if (difficulty === 'all' || article.getAttribute('data-difficulty') === difficulty) {
-                        article.style.display = 'block';
+                // 筛选内容
+                const items = document.querySelectorAll('#index-container .col-md-6');
+                items.forEach(item => {
+                    if (filter === 'all') {
+                        item.style.display = 'block';
                     } else {
-                        article.style.display = 'none';
+                        const category = item.getAttribute('data-category');
+                        if (category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     }
                 });
             });
