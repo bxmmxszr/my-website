@@ -129,8 +129,10 @@
                     <li class="nav-item"><a class="nav-link" id="articles-link" href="basic-crash-course.html">文章</a></li>
                     <li class="nav-item">
                         <span id="user-info" class="navbar-text me-2 d-none"></span>
+                        <a href="profile.html" class="btn btn-outline-primary btn-sm me-1 d-none" id="profile-btn">个人中心</a>
+                        <a href="learning-records.html" class="btn btn-outline-info btn-sm me-1 d-none" id="records-btn">学习记录</a>
+                        <a href="admin-vocabulary.html" class="btn btn-outline-warning btn-sm me-1 d-none" id="admin-btn">管理员</a>
                         <button id="login-btn" class="btn btn-outline-primary btn-sm me-1">登录</button>
-                        <!-- 简化版移除了注册按钮 -->
                         <button id="logout-btn" class="btn btn-outline-secondary btn-sm d-none">登出</button>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#contact">联系</a></li>
@@ -160,7 +162,7 @@
             <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="mb-4">关于立信英语</h2>
-                    <p>立信英语致力于为中小学生提供科学、高效、有趣的英语学习方法和资源。我们摒弃传统的死记硬背模式，采用“项目制学习”和“沉浸式学习法”，让学习者在真实的语境中自然掌握英语。</p>
+                    <p>立信英语致力于为中小学生提供科学、高效、有趣的英语学习方法和资源。我们摒弃传统的死记硬背模式，采用"项目制学习"和"沉浸式学习法"，让学习者在真实的语境中自然掌握英语。</p>
                     <p>我们的核心理念是：时间短、方法正确、工具便捷、进步可见。通过每天翻译一篇文章，让单词和语法自然融入，扩大知识面，更贴近新中考高考要求。</p>
                 </div>
                 <div class="col-lg-6">
@@ -226,7 +228,7 @@
                                 <span class="fs-3">🧠</span>
                             </div>
                             <h5 class="card-title">学习方法</h5>
-                            <p class="card-text">深入解析立信英语的高效学习逻辑，包括“时间短、方法正确、项目制学习”等核心理念，并详细介绍“沉浸式学习法”、“间隔重复记忆法”和“输出驱动学习法”三大科学训练原理，帮助学习者掌握事半功倍的英语学习策略。</p>
+                            <p class="card-text">深入解析立信英语的高效学习逻辑，包括"时间短、方法正确、项目制学习"等核心理念，并详细介绍"沉浸式学习法"、"间隔重复记忆法"和"输出驱动学习法"三大科学训练原理，帮助学习者掌握事半功倍的英语学习策略。</p>
                             <a href="learning-methods.html" class="btn btn-success">查看详情</a>
                         </div>
                     </div>
@@ -240,7 +242,7 @@
                             </div>
                             <h5 class="card-title">分级学习</h5>
                             <p class="card-text">提供从小学四年级到高三的系统化英语学习资源。根据学习者不同阶段的需求，提供针对性的学习内容、练习和指导，循序渐进提升英语水平。</p>
-                            <a href="articles.html" id="service-articles-link" class="btn btn-info">开始学习</a>
+                            <a href="si-nian-ji.html" id="service-articles-link" class="btn btn-info">开始学习</a>
                         </div>
                     </div>
                 </div>
@@ -346,7 +348,7 @@
                                 <span class="fs-2 text-info">✍️</span>
                             </div>
                             <h5 class="card-title mb-3">输出驱动学习法</h5>
-                            <p class="card-text text-muted">通过“输出”（说、写、翻译）来驱动和检验“输入”（听、读）的效果。输出能暴露知识盲点，加深理解和记忆。</p>
+                            <p class="card-text text-muted">通过"输出"（说、写、翻译）来驱动和检验"输入"（听、读）的效果。输出能暴露知识盲点，加深理解和记忆。</p>
                         </div>
                     </div>
                 </div>
@@ -392,7 +394,7 @@
     </section>
 
     <!-- 页脚 -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -406,8 +408,9 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="api.js"></script>
     <script>
-        // --- 新增：本地存储的键名 ---
+        // --- 用户管理逻辑更新 ---
         const USER_KEY = 'lixin_user';
 
         // 获取 DOM 元素
@@ -415,60 +418,13 @@
         const serviceArticlesLink = document.getElementById('service-articles-link');
         const resourceLink = document.getElementById('resource-link');
         const userInfo = document.getElementById('user-info');
+        const profileBtn = document.getElementById('profile-btn');
+        const recordsBtn = document.getElementById('records-btn');
+        const adminBtn = document.getElementById('admin-btn');
         const loginBtn = document.getElementById('login-btn');
-        const logoutBtn = document.getElementById('logout-btn'); // 注意：保留登出按钮
+        const logoutBtn = document.getElementById('logout-btn');
 
-        // 模态框相关元素
-        const authModal = document.getElementById('authModal');
-        const authModalTitle = document.getElementById('authModalTitle');
-        const authForm = document.getElementById('authForm');
-        const authEmail = document.getElementById('authEmail');
-        const authPassword = document.getElementById('authPassword');
-        // 移除了 confirmPassword 相关元素
-        const authSubmitBtn = document.getElementById('authSubmitBtn');
-        const authBtnText = document.getElementById('authBtnText');
-        const authBtnLoading = document.getElementById('authBtnLoading');
-        // 移除了模式切换按钮
-        const authClose = document.querySelector('.auth-close');
-        const authMessage = document.getElementById('authMessage');
-
-        // 显示模态框 (简化版)
-        function showModal() {
-            authModalTitle.textContent = '用户登录';
-            authSubmitBtn.textContent = '登录';
-            authBtnText.textContent = '登录';
-            // 清除之前的消息和重置表单
-            authMessage.classList.add('d-none');
-            authMessage.textContent = '';
-            authForm.reset();
-            authModal.style.display = 'block';
-        }
-
-        // 隐藏模态框
-        function hideModal() {
-            authModal.style.display = 'none';
-        }
-
-        // 显示错误消息 (简化版，不处理成功消息)
-        function showMessage(message) {
-            authMessage.textContent = message;
-            authMessage.classList.remove('d-none');
-        }
-
-        // 显示/隐藏加载指示器
-        function toggleLoading(isLoading) {
-            if (isLoading) {
-                authBtnLoading.classList.remove('d-none');
-                authBtnText.classList.add('d-none');
-                authSubmitBtn.disabled = true;
-            } else {
-                authBtnLoading.classList.add('d-none');
-                authBtnText.classList.remove('d-none');
-                authSubmitBtn.disabled = false;
-            }
-        }
-
-        // --- 新增：检查本地存储中的用户状态 ---
+        // 检查本地存储中的用户状态
         function getStoredUser() {
             const userStr = localStorage.getItem(USER_KEY);
             return userStr ? JSON.parse(userStr) : null;
@@ -482,24 +438,38 @@
             localStorage.removeItem(USER_KEY);
         }
 
-        // --- 新增：根据用户状态更新UI ---
+        // 根据用户状态更新UI
         function updateUIForUser(user) {
             if (user) {
-                // 用户已登录 (模拟状态)
+                // 用户已登录
                 userInfo.textContent = `欢迎, ${user.email}`;
                 userInfo.classList.remove('d-none');
+                profileBtn.classList.remove('d-none');
+                recordsBtn.classList.remove('d-none');
+                adminBtn.classList.remove('d-none');
                 loginBtn.classList.add('d-none');
                 logoutBtn.classList.remove('d-none');
 
-                // 更新链接指向 articles.html (完整资源)
-                articlesLink.href = "articles.html";
-                if (serviceArticlesLink) serviceArticlesLink.href = "articles.html"; // 安全检查
-                resourceLink.href = "articles.html";
+                // 更新链接指向 si-nian-ji.html (完整资源)
+                articlesLink.href = "si-nian-ji.html";
+                if (serviceArticlesLink) serviceArticlesLink.href = "si-nian-ji.html";
+                resourceLink.href = "si-nian-ji.html";
                 resourceLink.textContent = "英语学习资源";
+
+                // 检查是否为管理员
+                const adminEmails = ['admin@example.com', 'admin@liuxinenglish.com'];
+                if (adminEmails.includes(user.email)) {
+                    adminBtn.classList.remove('d-none');
+                } else {
+                    adminBtn.classList.add('d-none');
+                }
 
             } else {
                 // 用户未登录
                 userInfo.classList.add('d-none');
+                profileBtn.classList.add('d-none');
+                recordsBtn.classList.add('d-none');
+                adminBtn.classList.add('d-none');
                 loginBtn.classList.remove('d-none');
                 logoutBtn.classList.add('d-none');
 
@@ -511,60 +481,26 @@
             }
         }
 
-        // 事件监听器
-        loginBtn.addEventListener('click', () => showModal());
-        // 移除了注册和模式切换监听器
-        authClose.addEventListener('click', hideModal);
-        window.addEventListener('click', (event) => {
-            if (event.target == authModal) {
-                hideModal();
-            }
-        });
-
-        // 表单提交处理 (简化版)
-        authForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = authEmail.value.trim();
-            const password = authPassword.value;
-
-            // 基本验证
-            if (!email || !password) {
-                showMessage("请填写邮箱和密码。");
-                return;
-            }
-
-            // 显示加载状态
-            toggleLoading(true);
-            showMessage(""); // 清除之前的消息
-
-            // --- 模拟登录过程 ---
-            // 这里我们不做任何服务器验证，只是模拟延迟和存储
-            setTimeout(() => {
-                // 假设登录成功 (实际应用中这里会调用后端API)
-                // 我们将用户邮箱存储起来作为登录凭证
-                const user = { email: email, loginTime: new Date().toISOString() };
-                storeUser(user);
-                updateUIForUser(user); // 更新UI
-                toggleLoading(false);
-                hideModal();
-                // alert("登录成功！"); // 可选提示
-            }, 1000); // 模拟1秒延迟
-        });
-
         // 登出按钮事件
         logoutBtn.addEventListener('click', () => {
             removeStoredUser();
-            updateUIForUser(null); // 更新UI为未登录状态
-            // alert("您已登出。"); // 可选提示
+            updateUIForUser(null);
+            // 重新加载页面以更新UI
+            location.reload();
         });
 
-        // --- 页面加载时检查用户状态 ---
+        // 登录按钮事件
+        loginBtn.addEventListener('click', () => {
+            window.location.href = 'login.html';
+        });
+
+        // 页面加载时检查用户状态
         document.addEventListener('DOMContentLoaded', () => {
             const storedUser = getStoredUser();
             updateUIForUser(storedUser);
         });
 
-        // 平滑滚动 (保持不变)
+        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.id === 'articles-link' || this.id === 'service-articles-link' || this.id === 'resource-link') return;
